@@ -1,0 +1,4 @@
+livekit-agents>=1.0.0
+livekit-plugins-silero>=1.0.0
+livekit-api>=0.7.0
+python-dotenv>=1.0.0

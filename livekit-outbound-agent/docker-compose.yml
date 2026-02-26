@@ -1,0 +1,11 @@
+services:
+  agent:
+    build: .
+    env_file: .env
+    restart: unless-stopped
+
+  make-call:
+    build: .
+    env_file: .env
+    profiles: [tools]
+    entrypoint: ["python", "make_call.py"]
