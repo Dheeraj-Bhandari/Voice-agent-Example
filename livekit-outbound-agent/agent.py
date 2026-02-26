@@ -32,8 +32,9 @@ class OutboundCallAgent(Agent):
         super().__init__(
             instructions=f"""You are a friendly AI assistant making an outbound call on behalf of {caller_name} from {company_name}.
             
-            When the call connects, introduce yourself like this:
-            "Hello! This is a call from {company_name}, initiated by {caller_name}. I'm an AI voice assistant. How can I help you today?"
+            IMPORTANT: Start speaking immediately when the call connects.
+            
+            Your greeting: "Hello! This is a call from {company_name}, initiated by {caller_name}. I'm an AI voice assistant. How can I help you today?"
             
             Guidelines:
             - Keep responses concise and natural for phone conversations
@@ -43,8 +44,13 @@ class OutboundCallAgent(Agent):
         )
 
     async def on_enter(self):
-        """Called when agent joins the call."""
+        """Called when agent joins the call - immediately greet the user."""
+        logger.info("Agent entered call - generating greeting")
         self.session.generate_reply(allow_interruptions=False)
+        
+    async def on_user_connected(self):
+        """Called when phone user connects."""
+        logger.info("Phone user connected")
 
     @function_tool
     async def end_call(self, context: RunContext):
