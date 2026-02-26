@@ -85,9 +85,9 @@ async def make_outbound_call(
 def main():
     parser = argparse.ArgumentParser(description="Make outbound call via LiveKit")
     parser.add_argument("phone_number", help="Phone number (E.164 format)")
-    parser.add_argument("--caller", default="Dheeraj", help="Caller name")
-    parser.add_argument("--company", default="Insybit", help="Company name")
-    parser.add_argument("--purpose", default="test call", help="Call purpose")
+    parser.add_argument("--caller", default="Oktivo AI", help="Caller name")
+    parser.add_argument("--company", default="Oktivo", help="Company name")
+    parser.add_argument("--purpose", default="demo call", help="Call purpose")
     
     args = parser.parse_args()
     
