@@ -1,0 +1,48 @@
+# LiveKit Server Configuration
+# For local development and testing
+
+# Server port
+port: 7880
+
+# API keys - CHANGE THESE IN PRODUCTION
+keys:
+  # Format: api_key: api_secret
+  # Generate with: openssl rand -base64 32
+  devkey: secret
+
+# Redis configuration
+redis:
+  address: redis:6379
+
+# RTC (WebRTC) configuration
+rtc:
+  # Port range for WebRTC UDP traffic
+  port_range_start: 50000
+  port_range_end: 50100
+  
+  # TCP fallback port
+  tcp_port: 7881
+  
+  # Use external IP for ICE candidates
+  # Set to true when running on a server with public IP
+  use_external_ip: false
+
+# Logging
+logging:
+  level: info
+  # json: true  # Enable for production
+
+# Room configuration
+room:
+  # Enable rooms to be created automatically
+  auto_create: true
+  
+  # Empty room timeout (seconds)
+  empty_timeout: 300
+
+# TURN server (optional - for better connectivity)
+# turn:
+#   enabled: true
+#   domain: turn.yourdomain.com
+#   tls_port: 5349
+#   udp_port: 3478

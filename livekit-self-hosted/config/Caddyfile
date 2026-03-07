@@ -1,0 +1,10 @@
+# Caddyfile for LiveKit Production
+# Replace yourdomain.com with your actual domain
+
+livekit.yourdomain.com {
+    reverse_proxy livekit-server:7880
+}
+
+turn.yourdomain.com {
+    reverse_proxy livekit-server:5349
+}
